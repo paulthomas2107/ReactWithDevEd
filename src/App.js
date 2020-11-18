@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import Tweet from "./tweet";
 
 function App() {
+  const [isRed, setRed] = useState(false);
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+    setRed(!isRed);
+  };
+
+  const [users, setUsers] = useState([
+    {
+      name: "Paul",
+      message: "I like Sushi",
+      likes: 202,
+    },
+    {
+      name: "Caitlin",
+      message: "I like Fruit",
+      likes: 722,
+    },
+    {
+      name: "Rory",
+      message: "I like Man Utd.",
+      likes: 12722,
+    },
+  ]);
+
   return (
     <div className="app">
-      <Tweet name="Paul" message="I like Apples" likes="22" />
-      <Tweet name="Caitlin" message="I like Pears" likes="12" />
-      <Tweet name="Rory" message="I like Grapes" likes="383" />
-      <Tweet name="Jack" message="I like Chocolate" likes="1077" />
+      {users.map((user) => (
+        <Tweet name={user.name} message={user.message} likes={user.likes} />
+      ))}
     </div>
   );
 }

@@ -56,3 +56,18 @@
   justify-content: space-around;
   align-items: center;
 }
+
+h3 {
+  color: palevioletred;
+}
+
+button {
+  color: black;
+  transform: rotate(-180deg);
+  -webkit-transform: rotate(-270deg);
+}
+
+
+.red {
+  color: red;
+}
